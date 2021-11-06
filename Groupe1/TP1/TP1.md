@@ -1,13 +1,13 @@
 Année: 2021-2022
 ----------------
 
-### Travaux pratiques 1 Renaudin Léna et Reure Antoine
+# Travaux pratiques 1 Renaudin Léna et Reure Antoine
 
-#### Objectifs
+## Objectifs
 
 -   Ecrire, compiler et exécuter les programmes C.
 
-#### Exercice 1.1 [★]
+### Exercice 1.1 [★]
 
  
 Créez un fichier *bonjour.c* et écrivez un programme qui affiche
@@ -22,7 +22,7 @@ int main(){
 }
 ```
 
-#### Exercice 1.2 [★]
+### Exercice 1.2 [★]
 
  
 Ecrivez un programme *cercle.c* qui calcule l'aire et le périmètre d'un
@@ -36,62 +36,85 @@ c.  Compilez *cercle.c* et créez un fichier éxecutable nommé cercle
 
 d.  Exécutez 'cercle'
 
+```c
 
-#### Exercice 1.3 [★]
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    float rayon = 1;
+    printf("Mesure rayon? ");
+    scanf("%f",&rayon); //scanf = rend la main ; &=@var ; https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/14118-un-monde-de-variables
+    float pi = M_PI;
+    float aire = rayon * rayon * pi;
+    float perim = 2 * rayon * pi;
+    printf("%f\n",aire);
+    printf("%f\n",perim);
+    return 0;
+}
+```
+
+
+### Exercice 1.3 [★]
 
  
 Ecrivez un programme *sizeof_types.c* qui affiche la taille des
 différents types de base (en octets) :
 
-i.  char
+```c
+#include <stdio.h>
+//enum type {char,short,int,long int,long long int, float, double, long double};
 
-ii. short
+int main(){
+    printf("char: %lu octets\n", sizeof(char));
+    printf("int: %lu octets\n", sizeof(int));
+    printf("long: %lu octets\n", sizeof(long));
+    printf("long long: %lu octets\n", sizeof(long long));
+    printf("float: %lu octets\n", sizeof(float));
+    printf("double: %lu octets\n", sizeof(double));
+    printf("long double: %lu octets\n", sizeof(long double));
+return 0;
+}
+```
 
-iii. int
-
-iv. long int
-
-v.  long long int
-
-vi. float
-
-vii. double
-
-viii. long double
-
-
-Ne pas oubliez d'utiliser les versions signées et non-signées. Testez le
-programme (compilez et exécuter).
-
-
-#### Exercice 1.4 [★★]
+### Exercice 1.4 [★★]
 
  
 Ecrivez un programme *variables.c* qui affecte et affiche les valeurs
 des variables des différents types de base :
 
-i.  char
+```c
+#include <stdio.h>
 
-ii. short
+int main(){
+    char str[] = "Hello";
+    printf("STR = '%s' Changer string? ",str);
+    scanf("%s",str);
+    printf("%s\n",str);
 
-iii. int
+    int a = 1;
+    short b = 44;
+    long c = 1983248;
+    float d = 3.14;
+    char e = 'E';
+    long long int f = 1561561561;
+    double h = 6564;
+    long double i = 46464;
 
-iv. long int
+    printf("char = %c\n", e);
+    printf("short = %hd\n", b);
+    printf("int = %i\n", a);
+    printf("long int = %li\n", c);
+    printf("long long int = %lli\n", f);
+    printf("float = %f\n", d);
+    printf("double = %lf\n", h);
+    printf("long double = %Lf\n", i);
+return 0;
+}
 
-v.  long long int
+```
 
-vi. float
-
-vii. double
-
-viii. long double
-
-
-N'oubliez pas d'utiliser les versions signées et non-signées. Testez
-le programme.
-
-
-#### Exercice 1.5 [★★]
+### Exercice 1.5 [★★]
 
  
 Ecrivez un programme *opérateurs.c* qui utilise deux variables
@@ -103,8 +126,31 @@ ii. **b** = 3
 
 et testez les différents opérateurs arithmétiques et logiques.
 
+```c
 
-#### Exercice 1.6 [★★]
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int val1 = 1;
+    int val2 = 1;
+    printf("Valeure 1? ");
+    scanf("%i",&val1);
+    printf("Valeure 2? ");
+    scanf("%i",&val2);
+    int somme = val1 + val2;
+    int produit = val1 * val2;
+    int puissance = round(pow(val1,val2));
+    printf("Somme : %d\n",somme);
+    printf("Produit : %d\n",produit);
+    printf("Puissance : %d\n", puissance);
+ return 0;
+}
+    
+
+```
+
+### Exercice 1.6 [★★]
 
  
 Ecrivez un programme *boucles.c* qui utilise **for**, # et * et qui
@@ -112,19 +158,37 @@ affiche un triangle rectangle. La taille du triangle est dependent de la
 valeur de la variable **compter** (**compter** < 4 inacceptable).
 Exemple, si **compter** = 5, le programme affiche
 
-```
-*              
-* *               
-* # *              
-* # # *              
-* * * * *
+```c
+#include <stdio.h>
+
+int main(){
+    int ligne = 0;
+    int x;
+    int y;
+    printf("Hauteur du sapingue? ");
+    scanf("%d",&ligne);
+    ligne=ligne-3;
+    
+    if (ligne == 0-3) {printf("PAS DE SAPIN\n");}
+    else if (ligne == 1-3) {printf("*\n");}
+    else if (ligne > 1-3) {
+        printf("*\n**\n");
+        for (y=0 ; y<=ligne ; y++){
+            printf("*");
+            if (y==ligne) {for(x=0 ; x<=y ; x++){printf("*");}}
+            else {for(x=0 ; x<=y ; x++) {printf("#");}}
+            printf("*\n");
+        }
+    }
+    return 0;
+}
 ```
 
 Testez le code avec les différentes valeurs de compter. Ecrivez une
 nouvelle version du code en utilisant **while** ou **do..while**.
 
 
-#### Exercice 1.7 [★★]
+### Exercice 1.7 [★★]
 
  
 Ecrivez un programme *conditions.c* qui utilise les boucles (**for**,
@@ -140,7 +204,7 @@ c.  7 ou 5, mais pas par 3
 
 
 
-#### Exercice 1.8 [★★★]
+### Exercice 1.8 [★★★]
 
  
 Ecrivez un programme *opérateurs2.c* qui utilise trois variables
@@ -157,7 +221,42 @@ programme fait l'opération ET etc. Rappelez-vous bien que l'on ne peut
 pas utiliser chaine de caractères comme condition en **switch**. Testez
 votre programme avec différents valeurs de **num1**, num2, **op**
 
+```c
+#include <stdio.h>
+#include <math.h>
 
+int main(){
+    int num1 = 6;
+    printf("Num1? "); scanf("%i",&num1);
+    int num2 = 5;
+    printf("Num2? "); scanf("%i",&num2);
+    char ope;
+    printf("Opérateur? "); scanf("%c",&ope);
+    int res1=num1+num2;
+    int res2=num1-num2;
+    int res3=num1*num2;
+    int res4=num1/num2;
+    int res5=num1%num2;
+
+    switch(ope){
+        case '+':
+            printf("%i",res1); break;
+        case '-':
+            printf("%i",res2); break;
+        case '*':
+            printf("%i",res3); break;
+        case '/':
+            printf("%i",res4); break;
+        case '%':
+            printf("%i",res5); break;
+//        default:
+//            printf("Erreur"); break;
+    }
+    printf("\n");
+    return 0;
+}
+
+```
 #### Exercice 1.9 [★★★]
 
  
@@ -193,30 +292,8 @@ opérateurs.c, sizeof_types.c, variables.c*
 **CONTRIBUTORS**
 
 ```             
- 1. NOM Prénom
- 2. NOM Prénom
+ 1. RENAUDIN Léna
+ 2. REURE Antoine
 `
-
-**README**
-
-`             
-# Bibliothèques:               
-* stdio.h               
-* ..              
-
-# Références:               
-* groupe..               
-* http://www.example.com               
-* ..              
-
-# Difficulté: ..               
-* ..              
-
-# Commentaires               
-* commentaire 1               
-* commentaire 2               
-* ..             
-```
-
 
 
