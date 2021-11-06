@@ -267,6 +267,56 @@ hexadécimale) ou o (l'affichage d'un numéro en notation octale) pour
 l'affichage en notation binaire. Testez votre code avec les 5 numéros
 suivants : 0, 4096, 65536, 65535, 1024
 
+```c
+
+#include <stdio.h>
+
+int main()
+
+{
+    int n;
+
+    int binary[100];  //tableau
+ 
+    int i=0;
+
+    printf("\nEntrez votre nombre decimal : "); 
+
+    scanf("%d",&n);
+
+    if(n==0){  //si le n est egale a 0 alors...
+
+        printf("Le nombre binaire est : 0");
+
+return 0;
+
+    }
+
+
+    while(n){   //tant que  n different de 0
+
+      binary[i] = n%2; //modulo
+
+      n = n/2; 
+
+      i++; 
+
+    }
+    
+    for(i=i-1;i>=0;i--)
+
+    {   
+
+        printf("%d",binary[i]);  //commence par la fin du tableau  
+
+    }
+
+return 0; 
+
+}
+
+
+```
 
 #### Astuce
 
