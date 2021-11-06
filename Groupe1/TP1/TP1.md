@@ -1,7 +1,7 @@
 Année: 2021-2022
 ----------------
 
-### Travaux pratiques 1
+### Travaux pratiques 1 Renaudin Léna et Reure Antoine
 
 #### Objectifs
 
@@ -14,6 +14,13 @@ Créez un fichier *bonjour.c* et écrivez un programme qui affiche
 **"bonjour le monde!"** à l'écran. Compilez ce fichier en utilisant
 gcc et exécutez le code.
 
+```c
+#include <stdio.h>
+int main(){
+    printf("Bonjour tout le monde!\n");
+    return 0;
+}
+```
 
 #### Exercice 1.2 [★]
 
