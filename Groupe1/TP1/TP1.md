@@ -193,17 +193,67 @@ nouvelle version du code en utilisant **while** ou **do..while**.
  
 Ecrivez un programme *conditions.c* qui utilise les boucles (**for**,
 **while** ou **do..while**) et les branchements inconditionnels (break
-ou continue) pour l'affichage de numéros <= 1000 qui sont divisible par
-:
-
+ou continue) pour l'affichage de numéros <= 1000 qui sont divisible par:
 a.  2 et 15
 
 b.  103 ou 107
 
 c.  7 ou 5, mais pas par 3
 
+```c
+#include <stdio.h>
+ 
+int main()
+{
+   int i;
+   int taba[1000];
+   int tabb[1000];
+   int tabc[1000];
+   int x=0;
+   int y=0;
+   int z=0;
 
 
+   for(i=0;i<=1000;i++)
+        {        
+        if (i%2 == 0 && i%15 == 0 )
+                {
+                taba[x]=i;
+                x++;
+                }
+        if (i%103 == 0 || i%107 == 0)
+               {
+                tabb[y]=i;
+                y++;
+                }
+if(i%7 == 0 || i%5 == 0 && i%3 == 1)
+                {
+                tabc[z]=i;
+                z++;
+                }
+        }
+   printf("nombre divisible par 2 et 15 :\n");        
+
+   for(i=0;i<x;i++)
+      {
+        printf("%d\t\n",taba[i]);
+
+        }
+   printf("nombre divisible par 103 et 107 :\n");
+   for(i=0;i<y;i++)
+      {
+       printf("%d\t\n",tabb[i]);
+       }
+
+   printf("nombre divisible par 7 et 5 mais non 3 :\n");
+
+        for(i=0;i<z;i++)
+      {
+       printf(" %d\t\n",tabc[i]);
+}
+   return 0;
+}
+```
 ### Exercice 1.8 [★★★]
 
  
