@@ -16,7 +16,24 @@ qui affiche la valeur du nombre **a** élevé à une puissance **b**. Par
 exemple, puissance(2,3) affiche la valeur 8. N'utilisez pas la fonction
 *pow()* (math.h).
 
+```c
+#include <stdio.h>
+#include <math.h>
 
+int main(){
+    int val1;
+    int val2;
+    printf("Valeure 1? ");
+    scanf("%i",&val1);
+    printf("Valeure 2? ");
+    scanf("%i",&val2);
+    int puissance = round(pow(val1,val2));
+    printf("Puissance : %d\n", puissance);
+    return 0;
+}
+
+
+```
 #### Exercice 2.2 [★]
 
 
