@@ -58,6 +58,51 @@ initialise et affiche les détails de ces cinq étudiant.e.es. Pour chaque
 étudiant.e, on est intéressé par son nom, son prénom, son adresse, et
 ses notes dans 2 modules (Programmation en C, Système d'exploitation).
 
+```c
+
+#include<stdio.h>
+#include<string.h>
+
+struct student
+{
+    int note_progC;
+    char nom[100];
+    char prenom[100];
+    char adresse[100];
+    int note_systeme;
+};
+int main(void)
+{
+    int counter;
+    struct student student_fiche[5];
+
+    printf("fiche etudiant : \n");
+
+    for(counter=0; counter<5; counter++)
+    {
+        printf("\n nom:");
+        scanf("%s",&student_fiche[counter].nom);
+        printf("\n prenom:");
+        scanf("%s",&student_fiche[counter].prenom);
+printf("\n adresse:");
+        scanf("%s",&student_fiche[counter].adresse);
+        printf("\n note en systeme exploitation:");
+        scanf("%d",&student_fiche[counter].note_systeme);
+        printf("\n note en prog en C:");
+        scanf("%d",&student_fiche[counter].note_progC);
+    }
+
+    printf("\n La liste des etudiants:");
+
+    for(counter=0; counter<5; counter++)
+    {
+        printf("\n L'etudiant  nom:%s\t prenom:%s\t Adresse :%s\t systeme exploitation: %d\t programation : %d\n ",
+               student_fiche[counter].nom,student_fiche[counter].prenom,student_fiche[counter].adresse,student_fiche[counter].note_systeme,student_fiche[counter].note_progC);
+    }
+    return 0;
+}
+```
+
 
 #### Exercice 2.6 [★★]
 
@@ -67,6 +112,106 @@ ses notes dans 2 modules (Programmation en C, Système d'exploitation).
 chaque étudiant.e restent les mêmes comme pour l'exercice précédente
 (nom, prénom etc.). Vous pouvez utiliser strcpy pour initialiser les
 noms, prénoms etc.
+
+```c
+
+#include <stdio.h>
+#include <string.h>
+ 
+struct Student {
+   char  nom[50];
+   char  prenom[50];
+   char  adresse[100];
+   int   note_C;
+   int   note_systeme;
+} student;
+ 
+int main( ) {
+
+   struct Student eleve1;        /* Déclare student de type eleve 1 */
+   
+   strcpy (eleve1.nom,"re\t");
+   strcpy (eleve1.prenom,"lena\t");
+   strcpy (eleve1.adresse,"rue de fire\t\n");
+   eleve1.note_C=12;
+   eleve1.note_systeme=8;
+
+   /* afficher les informations du eleve 1 */
+   printf( "nom: %s", eleve1.nom);
+   printf( "prenom: %s", eleve1.prenom);
+   printf( "adresse: %s", eleve1.adresse);
+   printf( "note en C: %d\t", eleve1.note_C);
+   printf( "note en systeme exp: %d\t\n", eleve1.note_systeme);
+   printf("----------------------------\n");
+
+ struct Student eleve2;        /* Déclare student de type eleve2 */
+   
+   strcpy (eleve2.nom,"dupont\t");
+   strcpy (eleve2.prenom,"jean\t");
+   strcpy (eleve2.adresse,"rue de la feuille\t\n");
+   eleve2.note_C=6;
+   eleve2.note_systeme=18;
+
+   /* afficher les informations du eleve 2 */
+   printf( "nom: %s", eleve2.nom);
+   printf( "prenom: %s", eleve2.prenom);
+   printf( "adresse: %s", eleve2.adresse);
+   printf( "note en C: %d\t", eleve2.note_C);
+   printf( "note en systeme exp: %d\t\n", eleve2.note_systeme);
+printf("----------------------------\n");
+
+struct Student eleve3;        /* Déclare student de type eleve3 */
+   
+   strcpy (eleve3.nom,"roy\t");
+   strcpy (eleve3.prenom,"lola\t");
+   strcpy (eleve3.adresse,"allee montmartre\t\n");
+   eleve3.note_C=14;
+   eleve3.note_systeme=10;
+
+   /* afficher les informations du eleve 3 */
+   printf( "nom: %s", eleve3.nom);
+   printf( "prenom: %s", eleve3.prenom);
+   printf( "adresse: %s", eleve3.adresse);
+   printf( "note en C: %d\t", eleve3.note_C);
+   printf( "note en systeme exp: %d\t\n", eleve3.note_systeme);
+        printf("----------------------------\n");
+
+struct Student eleve4;        /* Déclare student de type eleve4 */
+   
+   strcpy (eleve4.nom,"vanns\t");
+   strcpy (eleve4.prenom,"adrien\t");
+   strcpy (eleve4.adresse,"avenue duman\t\n");
+   eleve4.note_C=10;
+   eleve4.note_systeme=11;
+
+   /* afficher les informations du eleve 4 */
+   printf( "nom: %s", eleve4.nom);
+   printf( "prenom: %s", eleve4.prenom);
+   printf( "adresse: %s", eleve4.adresse);
+   printf( "note en C: %d\t", eleve4.note_C);
+   printf( "note en systeme exp: %d\t\n", eleve4.note_systeme);
+        printf("----------------------------\n");
+
+struct Student eleve5;        /* Déclare student de type eleve5 */
+   
+   strcpy (eleve5.nom,"LORIS\t");
+   strcpy (eleve5.prenom,"jeanne\t");
+   strcpy (eleve5.adresse,"avenue vauxis\t\n");
+   eleve5.note_C=4;
+   eleve5.note_systeme=15;
+
+   /* afficher les informations du eleve 5 */
+printf( "nom: %s", eleve5.nom);
+   printf( "prenom: %s", eleve5.prenom);
+   printf( "adresse: %s", eleve5.adresse);
+   printf( "note en C: %d\t", eleve5.note_C);
+   printf( "note en systeme exp: %d\t\n", eleve5.note_systeme);
+        printf("----------------------------\n");
+
+   return 0;
+}
+
+```
 
 
 #### Exercice 2.7 [★★]
