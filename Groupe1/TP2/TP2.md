@@ -57,7 +57,6 @@ Fibonacci U0, U1, U2,...Un.
 
 #### Exercice 2.4 [★★]
 
-
 Sans utiliser les bibliothèques standards ou externes (par exemple
 string.h), écrivez le code *chaine.c* qui
 
