@@ -467,6 +467,39 @@ float, double, long double) en utilisant leurs adresses. N'oubliez pas
 d'afficher l'adresse et la valeur de ces variables avant ou après la
 manipulation par leurs adresses (en utilisant les pointeurs).
 
+```c
+nt main(){
+    
+    int a = 1;
+    short b = 44;
+    long c = 1983248;
+    float d = 3.14;
+    char e = 'E';
+    long long int f = 1561561561;
+    double h = 6564;
+    long double i = 46464;
+
+    printf("char e  = %c\n", e);
+        printf("l'adresse de e est : %x\n",&e);
+    printf("short b = %hd\n", b);
+        printf("l'adresse de b est : %x\n",&b);
+    printf("int a = %i\n", a);
+        printf("l'adresse de  a est : %x\n",&a);
+    printf("long int c = %li\n", c);
+        printf("l'adresse de c est : %x\n",&c);
+    printf("long long int f  = %lli\n", f);
+        printf("l'adresse de f est : %x\n",&f);
+    printf("float d = %f\n", d);
+        printf("l'adresse de d est : %x\n",&d);
+    printf("double h = %lf\n", h);
+        printf("l'adresse de h est : %x\n",&h);
+    printf("long double i = %Lf\n", i);
+        printf("l'adresse de i est : %x\n",&i);
+
+return 0;
+}
+
+```
 
 #### Exercice 2.9 [★★★]
 
