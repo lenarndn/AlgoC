@@ -17,19 +17,41 @@ exemple, puissance(2,3) affiche la valeur 8. N'utilisez pas la fonction
 *pow()* (math.h).
 
 ```c
-#include <stdio.h>
-#include <math.h>
+#include stdio.h
+ 
+float puissance(float X, int deg){
 
-int main(){
-    int val1;
-    int val2;
-    printf("Valeure 1? ");
-    scanf("%i",&val1);
-    printf("Valeure 2? ");
-    scanf("%i",&val2);
-    int puissance = round(pow(val1,val2));
-    printf("Puissance : %d\n", puissance);
-    return 0;
+    int debutX=X;
+
+    if (deg==0){
+        X=1;
+    }
+
+    else{
+
+    for (int i=0; i<deg-1; i++){
+
+        if (deg>=0){
+            X*=debutX;
+
+        }
+
+    }
+
+    }
+
+    return X;
+}
+
+int main {
+
+        int a;
+        printf (" entrer un nombre : \n");
+        scanf("%s",&a);
+        printf ("entrer une puissance\n");
+        scanf("%s",&b)
+
+return 0;
 }
 
 
@@ -54,8 +76,55 @@ La suite de Fibonacci est une suite d'entiers définie comme suit :
 Écrivez le code *fibonacci.c* qui affiche les n termes de la suite de
 Fibonacci U0, U1, U2,...Un.
 
+```c
+#include <stdio.h>
+
+int main()
+
+{
+                int fib[10]; //La suite sera dans ce tableau
+
+                int n;
+
+                int i;
+
+                fib[0] = 1;
+
+                fib[1] = 1;
+
+                printf("Combien de nombre pour cette suite  (doit être <= 10)? ");
+
+                scanf("%d", &n);
+
+
+                /* On ne peux pas prendre + de 1000 elements a cause de fib[10] qu'on a déclarer */
+
+                if(n>10){
+
+                               printf("Pas + de 10, sinon c'est mort \n");
+
+                               return 1;
+                }
+
+                /* Calcule la suite de fibonacci; */
+
+                for(i=2; i<n; i++)
+
+                               fib[i] = fib[i-1] + fib[i-2];
+
+                /* Affiche la "suite" */
+
+                for(i=0; i<n; i++)
+
+                               printf("U[%d] = %d \n", i, fib[i]);
+
+                return 0;
+}
+
+```
 
 #### Exercice 2.4 [★★]
+
 
 Sans utiliser les bibliothèques standards ou externes (par exemple
 string.h), écrivez le code *chaine.c* qui
@@ -63,6 +132,93 @@ string.h), écrivez le code *chaine.c* qui
 1.  calcule le nombre de caractères dans une chaine de caractères
 2.  copie une chaine de caractères dans une autre chaine de caractère
 3.  concatène deux chaines de caractères
+
+```c
+#include <stdio.h>
+
+void copie(char chaine1[], char chaine2[])
+{
+                for(int ia=0; chaine1[ia]; ia++){
+
+                    chaine2[ia]=chaine1[ia];
+                }
+}
+int taille(char chaine[]){
+
+    int taille=0;
+
+    while(chaine[taille])
+
+    {
+        taille++;
+    }
+
+    return taille;
+
+}
+
+void concatenation(char chaine1[], char chaine2[])
+
+{
+    int taille1=taille(chaine1);
+
+    int taille2=taille(chaine2);
+
+    int taille3=taille1+taille2;
+
+    char chaine3[100];
+
+    int i,j;
+
+    for (i=0; i<taille1; i++)
+
+    {
+
+        chaine3[i]=chaine1[i];
+
+    }
+
+    for (j=0; j<taille2+1; j++)
+
+    {
+
+        chaine3[i+j]=chaine2[j];
+    }
+
+    printf("%s\n", chaine3);
+}
+
+int main()
+
+{
+
+                char fib[100];
+
+                printf("1) : \nEntrer votre chaine 1 : ");
+
+                scanf("%s", fib);
+
+                printf("Chaine FIB = %s\nTaille : %d\n", fib, taille(fib));
+
+
+                char fia[100];
+
+                printf("Chaine FIA = VIDE\nTaille : %d\n", taille(fia));
+
+                copie(fib,fia);
+
+                printf("2) : Chaine FIA après avoir copier FIB dans FIA = ");
+
+                printf("%s\n",fia);
+
+                printf("\n\n3) : Chaine après avoir concatene FIA ET FIB : \n");
+
+                concatenation(fib,fia);
+
+                return 0;
+
+}
+```
 
 
 #### Exercice 2.5 [★★]
@@ -239,6 +395,67 @@ bleu (B) et alpha (A). Chaque valeur est un octet. Créez un programme
 tableau de 10 couleurs. Pensez à initialiser les coleurs en notation
 hexadécimale (r : 0xef, g : 0x78 etc.).
 
+```c
+#include <stdio.h>
+
+int main ()
+
+{
+  typedef struct couleur couleur;
+  struct couleur
+
+  {
+
+    int r;
+    int g;
+    int b;
+    int a;
+
+  };
+//test  couleur a = { 'a', 'f', 'f', 'f' };
+
+//test  printf ("%x %x %x %x", a.r, a.g, a.b, a.a);
+
+//test  printf (" Taille de struct %ld", sizeof (couleur));
+
+  struct couleur Tab[10];   //initialisation du tableau de type Struct couleur
+
+  for (int i = 0; i < 10; i++)
+
+    {
+
+      printf ("\n\n%de COULEUR\n", i + 1);
+
+      printf ("Que vaut R ? : ");
+      scanf ("%x", &Tab[i].r);
+
+      printf ("Que vaut G ? : ");
+      scanf ("%x", &Tab[i].g);
+
+      printf ("Que vaut B ? : ");
+      scanf ("%x", &Tab[i].b);
+
+      printf ("Que vaut A ? : ");
+      scanf ("%x", &Tab[i].a);
+    }
+
+  for (int i = 0; i < 10; i++)
+
+    {
+      printf ("Couleur %d : \n", i + 1);
+      printf ("\tR : %d\n", Tab[i].r);
+      printf ("\tG : %d\n", Tab[i].g);
+      printf ("\tB : %d\n", Tab[i].b);
+      printf ("\tA : %d\n", Tab[i].a);
+
+    }
+
+  return 0;
+
+}
+
+```
+
 
 #### Exercice 2.8 [★★]
 
@@ -260,6 +477,48 @@ Pour les deux tableaux, si l'indice est divisible par 2, multipliez la
 valeur à cette position par 3. N'utilisez pas la notation indicielle
 pour parcourir les tableaux (par exemple, i [3], i [5] etc.).
 Utilisez les pointeurs.
+
+```c
+
+#include <stdio.h>
+
+int main()
+
+{
+
+    int taille=8;
+
+    int TE[8]={5,4,2,7,4,9,3,44};
+    int *p;
+    
+    float TF[8]={5,4,2,7,4,9,3,44};
+    float *p2;
+    for(p=TE; p<TE+taille; p++)
+
+    {
+
+        if ((p-TE)%2==0&&(p-TE)!=0){
+
+            TE[p-TE]*=3;
+
+        }
+
+        printf("%d ", *p);
+    }
+    printf("\n");
+    for(p2=TF; p2<TF+taille; p2++)
+    {
+        if ((p2-TF)%2==0&&(p2-TF)!=0){
+
+            TF[p2-TF]*=3;
+        }
+        printf("%.2f ", *p2);
+    }
+    return 0;
+
+}
+
+```
 
 
 #### Astuce
