@@ -63,6 +63,49 @@ Considérez un entier d (**int d ;**). Écrivez le code *bits.c* qui
 vérifie si les 4eme et 20eme bits de **gauche** sont 1 (en binaire). Si
 les deux bits sont 1, il affiche 1 sinon 0.
 
+```c
+#include <stdio.h>  
+#include <stdlib.h> 
+
+int main(){
+  
+  int tab[10], nbr, i;  
+  
+  printf("Entrez le nombre à convertir: ");  
+  scanf("%d",&nbr);  
+  
+  for(i=0; nbr > 0; i++)  
+  {  
+    tab[i] = nbr%2;  
+    nbr = nbr/2;  
+  } 
+  
+  printf("\nLe nombre binaire est = \n");
+  
+  for(i=i-1; i >= 0; i--)  
+  {  
+    printf("%d",tab[i]);  
+  }  
+   printf ("\n"); 
+   printf("egalité du 4eme et 20eme bit: si oui = 1 sinon = 0\n");
+ 
+  if ( tab[4] && tab[20] == 1)
+        {
+         printf("1\n");  //le 4eme et 20 bit est egale a 1
+        }
+ else
+        {
+         printf(" 0\n");  // le 4eme et 20 eme bit est différent. il affiche donc 0
+}
+  return 0;
+}
+
+
+
+
+
+```
+Pour prouver que cela fonctionne on peut remplacer la 20eme valeur par 2 par exemple . Entrer 255 , ainsi le 4eme bit et 2eme bit est identique .Le code affichera donc 1.
 
 #### Exercice 2.3 [★]
 
