@@ -19,17 +19,17 @@ exemple, puissance(2,3) affiche la valeur 8. N'utilisez pas la fonction
 ```c
 #include <stdio.h>
  
-float puissance(float X, int deg){
+float puissance(float X, int deg){    // création d'une fonction. se prositonne à l'exterieur du main()
 
     int debutX=X;
 
-    if (deg==0){
+    if (deg==0){   //vérification de la puissance
         X=1;
     }
 
     else{
 
-    for (int i=0; i<deg-1; i++){
+    for (int i=0; i<deg-1; i++){    // calcul de puissance
 
         if (deg>=0){
             X*=debutX;
@@ -46,7 +46,7 @@ float puissance(float X, int deg){
 int main {
 
         int a;
-        printf (" entrer un nombre : \n");
+        printf (" entrer un nombre : \n");      
         scanf("%s",&a);
         printf ("entrer une puissance\n");
         scanf("%s",&b)
@@ -69,12 +69,12 @@ les deux bits sont 1, il affiche 1 sinon 0.
 
 int main(){
   
-  int tab[10], nbr, i;  
+  int tab[10], nbr, i;     //tableau
   
-  printf("Entrez le nombre à convertir: ");  
-  scanf("%d",&nbr);  
+  printf("Entrez le nombre à convertir: ");     
+  scanf("%d",&nbr);         
   
-  for(i=0; nbr > 0; i++)  
+  for(i=0; nbr > 0; i++)  // codition qui verifie si c'est dvisible par 2 ou non
   {  
     tab[i] = nbr%2;  
     nbr = nbr/2;  
@@ -82,14 +82,14 @@ int main(){
   
   printf("\nLe nombre binaire est = \n");
   
-  for(i=i-1; i >= 0; i--)  
+  for(i=i-1; i >= 0; i--)  // condition qui va lire le tableau  à l'envers
   {  
     printf("%d",tab[i]);  
   }  
    printf ("\n"); 
-   printf("egalité du 4eme et 20eme bit: si oui = 1 sinon = 0\n");
+   printf("egalité du 4eme et 20eme bit: si oui = 1 sinon = 0\n"); 
  
-  if ( tab[4] && tab[20] == 1)
+  if ( tab[4] && tab[20] == 1)   //condition pour le 4eme et 20eme bit 
         {
          printf("1\n");  //le 4eme et 20 bit est egale a 1
         }
@@ -179,7 +179,7 @@ string.h), écrivez le code *chaine.c* qui
 ```c
 #include <stdio.h>
 
-void copie(char chaine1[], char chaine2[])
+void copie(char chaine1[], char chaine2[])    // fonction calcul du nombre de caractere dans une chaine
 {
                 for(int ia=0; chaine1[ia]; ia++){
 
@@ -200,10 +200,10 @@ int taille(char chaine[]){
 
 }
 
-void concatenation(char chaine1[], char chaine2[])
+void concatenation(char chaine1[], char chaine2[])  // fonction qui copie une chaine de caractère dans une autre
 
 {
-    int taille1=taille(chaine1);
+    int taille1=taille(chaine1);  //remplacement
 
     int taille2=taille(chaine2);
 
@@ -278,7 +278,7 @@ ses notes dans 2 modules (Programmation en C, Système d'exploitation).
 #include<stdio.h>
 #include<string.h>
 
-struct student
+struct student   //création de structure etudiant
 {
     int note_progC;
     char nom[100];
@@ -289,17 +289,17 @@ struct student
 int main(void)
 {
     int counter;
-    struct student student_fiche[5];
+    struct student student_fiche[5];   // creation variable
 
     printf("fiche etudiant : \n");
 
-    for(counter=0; counter<5; counter++)
+    for(counter=0; counter<5; counter++)   //boucle d'affichage
     {
         printf("\n nom:");
         scanf("%s",&student_fiche[counter].nom);
         printf("\n prenom:");
         scanf("%s",&student_fiche[counter].prenom);
-printf("\n adresse:");
+        printf("\n adresse:");
         scanf("%s",&student_fiche[counter].adresse);
         printf("\n note en systeme exploitation:");
         scanf("%d",&student_fiche[counter].note_systeme);
@@ -467,7 +467,7 @@ int main ()
 
     {
 
-      printf ("\n\n%de COULEUR\n", i + 1);
+      printf ("\n\n%de COULEUR\n", i + 1);  // affichage couleur
 
       printf ("Que vaut R ? : ");
       scanf ("%x", &Tab[i].r);
@@ -525,7 +525,7 @@ int main(){
     long double i = 46464;
 
     printf("char e  = %c\n", e);
-        printf("l'adresse de e est : %x\n",&e);
+        printf("l'adresse de e est : %x\n",&e); //affichage des adresses des variables
     printf("short b = %hd\n", b);
         printf("l'adresse de b est : %x\n",&b);
     printf("int a = %i\n", a);
@@ -566,8 +566,8 @@ int main()
 
     int taille=8;
 
-    int TE[8]={5,4,2,7,4,9,3,44};
-    int *p;
+    int TE[8]={5,4,2,7,4,9,3,44};  //tableau 
+    int *p;    //pointeur
     
     float TF[8]={5,4,2,7,4,9,3,44};
     float *p2;
