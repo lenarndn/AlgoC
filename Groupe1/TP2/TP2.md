@@ -17,7 +17,7 @@ exemple, puissance(2,3) affiche la valeur 8. N'utilisez pas la fonction
 *pow()* (math.h).
 
 ```c
-#include stdio.h
+#include <stdio.h>
  
 float puissance(float X, int deg){
 
@@ -511,7 +511,9 @@ d'afficher l'adresse et la valeur de ces variables avant ou après la
 manipulation par leurs adresses (en utilisant les pointeurs).
 
 ```c
-nt main(){
+#include <stdio.h>
+
+int main(){
     
     int a = 1;
     short b = 44;
